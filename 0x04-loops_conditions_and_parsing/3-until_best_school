@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+string="Best School"
+var=1
+until [ "$var" -gt 10 ]
+do
+	echo "$string"
+	(( var++ ))
+done
