@@ -3,7 +3,7 @@
 #+in a list format, where only the part of the name after the
 #+first dash is displayed
 
-for file in $(ls | cut --complement -d "-" -f 1)
+for file in $(find . | cut --complement -d "-" -f 1)
 do
 	echo "$file"
 done
