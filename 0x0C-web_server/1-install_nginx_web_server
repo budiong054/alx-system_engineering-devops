@@ -8,3 +8,5 @@ echo 'Hello World!' > index.html
 sudo rm -r /var/www/html/index.nginx-debian.html
 
 sudo mv index.html /var/www/html/
+
+curl localhost
