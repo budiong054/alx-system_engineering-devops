@@ -2,3 +2,9 @@
 # This scripts install nginx on my web-01
 
 sudo apt-get install -y nginx
+
+echo 'Hello World!' > index.html
+
+sudo rm -r /var/www/html/index.nginx-debian.html
+
+sudo mv index.html /var/www/html/
