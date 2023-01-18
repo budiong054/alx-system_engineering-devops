@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This scripts install nginx on my web-01
 
-sudo apt-get install -y nginx
+sudo apt-get -y install nginx
 
 echo 'Hello World!' > index.html
 
