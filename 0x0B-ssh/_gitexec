@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+###################################
+###	PUSH CODES TO GITHUB	###
+###	USING GIT COMMANDS	###
+###################################
+
+echo 'Enter the file name (use . to represent all files in dir)'
+read -p '>>> ' file
+
+
+echo 'Enter the commit message'
+read -p '>>> ' message
+
+git add `$file` && git commit -m `$message` && git push
