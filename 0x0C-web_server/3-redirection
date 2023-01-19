@@ -13,7 +13,7 @@ sudo mv index.html /var/www/html/
 
 sudo service nginx stop
 
-new_config="server_name \_\;\n\tlocation \/redirectme \{\n\t\treturn 301 \$scheme\:\/\/\$http_host\;\n\t\}\n"
+new_config="server_name \_\;\n\tlocation \/redirect_me \{\n\t\treturn 301 \$scheme\:\/\/\$http_host\;\n\t\}\n"
 
 sed -i "s/server_name _;/$new_config/" /etc/nginx/sites-enabled/default
 
