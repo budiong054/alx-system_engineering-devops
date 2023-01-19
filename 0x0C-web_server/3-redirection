@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This scripts install nginx on my web-01
+
+sudo apt-get update && sudo apt-get -y upgrade
+
+sudo apt-get -y install nginx
+
+echo 'Hello World!' > index.html
+
+sudo rm -r /var/www/html/index*.html
+
+sudo mv index.html /var/www/html/
+
+sudo service nginx stop
+
+new_config="server_name \_\;\n\tlocation \/redirectme \{\n\t\treturn 301 \$scheme\:\/\/\$http_host\;\n\t\}\n"
+
+sed -i "s/server_name _;/$new_config/" /etc/nginx/sites-enabled/default
+
+sudo nginx -t
+
+sudo service nginx start
