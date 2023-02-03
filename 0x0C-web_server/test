@@ -1,0 +1,8 @@
+frontend main
+	bind *:80
+	mode http
+	default_backend servers
+backend servers
+	balance roundrobin
+	server 87013-web-01 100.25.158.189:80 check
+	server 87013-web-02 54.236.45.59:80 check
