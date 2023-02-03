@@ -5,13 +5,16 @@ sudo apt-get update && sudo apt-get -y upgrade
 
 sudo apt-get -y install nginx
 
-echo 'Hello World!' | sudo tee /var/www/html/index.html
+echo 'Hello World!' > index.html
+
+sudo mv index.html /var/www/html
 
 new_config="server_name \_\;\n\tlocation \/redirect_me \{\n\t\treturn 301 \$scheme\:\/\/\$http_host\;\n\t\}\n"
 
 sudo sed -i "s/server_name _;/$new_config/" /etc/nginx/sites-enabled/default
 
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+echo "Ceci n'est pas une page" > 404.html
+ sudo mv 404.html /var/www/html
 
 new_404_config="\ \n\terror_page 404 \/404.html\;\ \n\tlocation = \/404.html \{\ \n\t\tinternal\;\n\t\}\ \n"
 
