@@ -13,7 +13,7 @@ sudo sed -i "s/server_name _;/$new_config/" /etc/nginx/sites-enabled/default
 
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
-new_404_config="\ \n\terror_page 404 \/404.html\;\ \n\tlocation = \/404.html \{\n\t\troot \/var\/www\/html\;\ \n\t\tinternal\;\n\t\}\ \n"
+new_404_config="\ \n\terror_page 404 \/404.html\;\ \n\tlocation = \/404.html \{\ \n\t\tinternal\;\n\t\}\ \n"
 
 sudo sed -i "/server_name _;/a $new_404_config" /etc/nginx/sites-enabled/default
 
