@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# fix task 0 and made short and sweet
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
+pkill -o nginx

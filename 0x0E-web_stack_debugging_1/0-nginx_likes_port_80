@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Fix failed to connect to 0 port 80 error
+
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
