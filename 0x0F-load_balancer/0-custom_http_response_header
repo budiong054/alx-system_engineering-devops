@@ -16,4 +16,4 @@ sudo sed -i "/server_name _;/a $new_404_config" /etc/nginx/sites-enabled/default
 
 add_header="\ \n\tadd_header X-Served-By $HOSTNAME;\ \n"
 sudo sed -i "/server_name _;/i $add_header" /etc/nginx/sites-enabled/default
-sudo service nginx reload
+sudo service nginx restart
