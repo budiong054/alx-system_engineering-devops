@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Display information about subdomains
+# shellcheck disable=SC2086
+
+display ()
+{
+	if [ $# -eq 2 ]
+	then
+		subdomain=$2
+		domainUrl=$2.$1
+		result=$(dig $domainUrl | awk '/ANSWER SECTION:/ {getline;print}')
+		record_type=$(echo $result | awk '{print $4}')
+		ip=$(echo $result | awk '{print $NF}')
+		echo "The subdomain $subdomain is a $record_type record and points to $ip"
+		return 0
+	fi
+
+	if [ $# -eq 1 ]
+	then
+		subdomains=( "www" "lb-01" "web-01" "web-02" )
+		for i in "${subdomains[@]}"
+		do
+			result=$(dig $i.$1 | awk '/ANSWER SECTION:/ {getline;print}')
+			record_type=$(echo $result | awk '{print $4}')
+			ip=$(echo $result | awk '{print $NF}')
+			echo "The subdomain $i is a $record_type record and points to $ip"
+		done
+		return 0
+	fi
+}
+
+if [ $# -gt 1 ]
+then
+	display $1 $2
+else
+	display $1
+fi
+
