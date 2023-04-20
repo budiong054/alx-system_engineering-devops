@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Fix task #1 in 7 lines or less
+chown -R nginx:nginx /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
+su -c 'service nginx restart' nginx

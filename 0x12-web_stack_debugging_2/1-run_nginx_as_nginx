@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Fix this container so that Nginx is running as the nginx user
+chown -R nginx:nginx /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
+su -c 'service nginx restart' nginx
