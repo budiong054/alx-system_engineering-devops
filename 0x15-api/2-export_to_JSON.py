@@ -19,7 +19,7 @@ if __name__ == '__main__':
         task = {}
         if todo.get('userId') == int(userId):
             task['task'] = todo.get('title')
-            task['complete'] = todo.get('completed')
+            task['completed'] = todo.get('completed')
             task['username'] = username
             all_task.append(task)
     task_dict = {userId: all_task}

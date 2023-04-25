@@ -20,6 +20,6 @@ if __name__ == '__main__':
                 completed_task += 1
                 task_title += "\n\t "
                 task_title += todo.get('title')
-    print("Employee {} is done with tasks ({}/{}):".format(
+    print("Employee {} is done with tasks({}/{}):".format(
           employee_name, completed_task, total_task), end="")
     print(task_title)

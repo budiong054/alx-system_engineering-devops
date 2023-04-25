@@ -14,7 +14,7 @@ if __name__ == '__main__':
     for employee in res.json():
         username = employee.get('username')
         id = employee.get('id')
-        
+
         todo_res = requests.get(url + "todos")
         all_task = []
         for todo in todo_res.json():
@@ -22,7 +22,7 @@ if __name__ == '__main__':
             if todo.get('userId') == id:
                 task['username'] = username
                 task['task'] = todo.get('title')
-                task['complete'] = todo.get('completed')
+                task['completed'] = todo.get('completed')
                 all_task.append(task)
         task_dict[id] = all_task
     filename = "todo_all_employees.json"
